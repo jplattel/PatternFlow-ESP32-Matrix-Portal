@@ -87,7 +87,7 @@ When modifying `pattern_sandbox.py`:
 
 **Unit Tests (on host):**
 - Test pattern_sandbox.py validation logic
-- Test pattern_storage.py file operations
+- Test pattern_sandbox.py storage functions
 - Test encoder_api.py request routing
 
 **Integration Tests (on device):**

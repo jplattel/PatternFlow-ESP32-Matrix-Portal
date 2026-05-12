@@ -331,20 +331,38 @@ class PatternSandbox:
         if not self.pattern_instance:
             return
             
+        # Check iteration limit (prevent infinite loops)
+        self._iteration_count = getattr(self, '_iteration_count', 0) + 1
+        if self._iteration_count > 10000:
+            print("Pattern update: iteration limit exceeded")
+            self._draw_error_indicator()
+            return
+            
         try:
             if hasattr(self.pattern_instance, 'update'):
                 # Support both old and new interfaces
-                import inspect
-                sig = inspect.signature(self.pattern_instance.update)
-                params = list(sig.parameters.keys())
-                
-                if 'knobs' in params:
-                    self.pattern_instance.update(dt, knobs or [0, 0, 0, 0])
+                # Check method signature without inspect module
+                import types
+                method = self.pattern_instance.update
+                if isinstance(method, types.MethodType):
+                    # Bound method - check __code__ for arg count
+                    arg_count = method.__code__.co_argcount
+                    # self + dt + knobs = 3, self + dt = 2
+                    if arg_count >= 3:
+                        method(dt, knobs or [0, 0, 0, 0])
+                    else:
+                        method(dt)
                 else:
-                    self.pattern_instance.update(dt)
+                    # Fallback: always pass knobs
+                    method(dt, knobs or [0, 0, 0, 0])
         except Exception as e:
             print(f"Pattern update error: {e}")
             self.last_error = [f"Update error: {e}"]
+            self._draw_error_indicator()
+        finally:
+            # Reset counter periodically to prevent overflow
+            if self._iteration_count > 1000:
+                self._iteration_count = 0
             
     def draw(self):
         """Draw pattern to display."""
