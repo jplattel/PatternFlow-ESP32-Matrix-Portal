@@ -1,0 +1,26 @@
+# CircuitPython
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Secrets (never commit!)
+secrets.py
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# CircuitPython storage
+*.uf2
+*.bin
+*.hex
