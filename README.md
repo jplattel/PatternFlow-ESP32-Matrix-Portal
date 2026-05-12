@@ -99,6 +99,52 @@ GET /api/pattern_code/load/MyPattern
 DELETE /api/pattern_code/delete/MyPattern
 ```
 
+## Deployment
+
+### Quick Deploy
+
+```bash
+# Make script executable (first time only)
+chmod +x deploy.sh
+
+# Deploy to MatrixPortal M4
+./deploy.sh
+```
+
+The script will:
+1. Find your CIRCUITPY drive automatically
+2. Create required directories (`patterns/`, `custom_patterns/`)
+3. Sync all necessary files
+4. Skip files that haven't changed
+5. Trigger auto-reload on the device
+
+### Manual Deployment
+
+Alternatively, copy these files to your CIRCUITPY drive:
+
+**Required files:**
+- `code.py`
+- `config.py`
+- `display_driver.py`
+- `encoder_api.py`
+- `pattern_sandbox.py`
+- `web_code_editor.py`
+- `wifi_manager.py`
+- `patterns/` (entire directory)
+
+**Create on device:**
+- `secrets.py` - Your WiFi credentials
+- `lib/` - CircuitPython libraries (from circuitpython.org/libraries)
+
+### Required Libraries
+
+Copy these from the [CircuitPython Library Bundle](https://circuitpython.org/libraries):
+
+- `adafruit_esp32spi`
+- `adafruit_display_shapes`
+- `adafruit_display_text`
+- `neopixel.mpy`
+
 ## REST API Endpoints
 
 All endpoints respond with JSON.

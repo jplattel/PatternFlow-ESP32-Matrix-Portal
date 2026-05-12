@@ -1,26 +1,41 @@
 # CircuitPython
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
+boot_out.txt
+ CIRCUITPY/
 
-# Secrets (never commit!)
+# User patterns (generated at runtime)
+custom_patterns/
+
+# WiFi credentials (user-specific)
 secrets.py
 
-# Editor files
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS files
 .DS_Store
-Thumbs.db
 
-# CircuitPython storage
-*.uf2
-*.bin
-*.hex
+# Deployment
+*.log
