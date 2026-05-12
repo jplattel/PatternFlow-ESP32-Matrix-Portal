@@ -4,6 +4,8 @@ CircuitPython implementation of [PatternFlow](https://github.com/engmung/Pattern
 
 > 🤖 Fully converted by clankers, sorry. Fully untested as well, don't have the time YET!
 
+> ⚠️ Photosensitivity Warning Patternflow displays rapidly changing light patterns that may trigger seizures in people with photosensitive epilepsy. Viewer discretion is advised. If you experience any discomfort, stop use immediately.
+
 ## What Changed from Original
 
 The original PatternFlow firmware used:
