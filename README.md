@@ -1,6 +1,8 @@
-# PatternFlow for MatrixPortal M4
+# [PatternFlow](https://github.com/engmung/PatternFlow) for MatrixPortal M4
 
-CircuitPython implementation of PatternFlow for Adafruit MatrixPortal M4 with REST API endpoints for knob control.
+CircuitPython implementation of [PatternFlow](https://github.com/engmung/PatternFlow) for Adafruit MatrixPortal M4 with REST API endpoints for knob control.
+
+> 🤖 Fully converted by clankers, sorry. Fully untested as well, don't have the time YET!
 
 ## What Changed from Original
 
@@ -23,7 +25,7 @@ This CircuitPython version uses:
 
 ## Features
 
-- 3 generative patterns ported from original PatternFlow firmware
+- 3 generative patterns ported from original [PatternFlow](https://github.com/engmung/PatternFlow) firmware
 - **Custom Pattern Code Editor** - Write Python patterns in your browser
 - REST API endpoints for controlling all 4 knobs
 - Pattern selection via API
@@ -101,7 +103,7 @@ DELETE /api/pattern_code/delete/MyPattern
 
 ## Deployment
 
-### Quick Deploy
+### Quick Deploy/sync to CIRCUITPY
 
 ```bash
 # Make script executable (first time only)
